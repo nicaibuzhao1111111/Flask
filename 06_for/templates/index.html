@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for循环</title>
+</head>
+<body>
+    <ul>
+        {% for foo in users %}
+            <li>{{ foo }}</li>
+        {% endfor %}
+
+    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>用户名</th>
+                <th>年龄</th>
+                <th>国家</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for key,value in person.items() %}
+                    <td>{{ value }}</td>
+                {% endfor %}
+
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>书名</th>
+                <th>作者</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                {% if loop.first %}
+                    <tr style="background-color: aqua">
+                {% elif loop.last %}
+                    <tr style="background-color: cadetblue">
+                {% endif %}
+                    <td>{{ loop.index }}</td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.price }}</td>
+                    <td>{{ loop.length }}</td>
+                </tr>
+            {% endfor %}
+
+
+        </tbody>
+    </table>
+</body>
+</html>
